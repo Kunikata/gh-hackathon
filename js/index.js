@@ -3,20 +3,26 @@
 		__name: 'handson.ReportController',
 
 		__ready: function() {
-		},
-		
-		'input, textarea focusout': function(context, $el) {
-		},
+			this.$find('input[name="reportDate"]').val(
+				handson.utils.formatDateWithHyphen(new Date())
+			);
+			this.$find('input[name="startTime"]').val('09:00');
+			this.$find('input[name="endTime"]').val(handson.utils.formatTime(new Date())
+		);
+	},
 
-		'input[name="img"] change': function(context, $el) {
-		},
+	'input, textarea focusout': function(context, $el) {
+	},
 
-		'.confirm click': function(context, $el) {
-		},
+	'input[name="img"] change': function(context, $el) {
+	},
 
-	};
-	
-	h5.core.expose(reportController);
+	'.confirm click': function(context, $el) {
+	},
+
+};
+
+h5.core.expose(reportController);
 })(jQuery);
 $(function() {
 	h5.core.controller(document.body, handson.ReportController);
